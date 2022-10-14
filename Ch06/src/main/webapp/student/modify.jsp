@@ -2,28 +2,30 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="bean.StudentBean"%>
-<%@page import="config.DB"%>
+<%@page import="config.JDBC"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
+
+
 	request.setCharacterEncoding("UTF-8");
 	String stdNo = request.getParameter("stdNo");
 	
 	StudentBean sb = null;
 	
 	try{
-		Connection conn = DB.getInstance().getConnection();
+		Connection conn = JDBC.getInstance().getConnection();
 		//3단계
 		Statement stmt = conn.createStatement();
 		//4단계
 		ResultSet rs = stmt.executeQuery("SELECT * FROM `student` WHERE `stdNO`='"+stdNo+"'");
 		//5단계
 		if(rs.next()){
-			sb = new StudentBean();
-			sb.setStdNo(rs.getInt(1));
-			sb.setStdName(rs.getString(2));
-			sb.setStdHp(rs.getString(3));
-			sb.setStdYear(rs.getInt(4));
-			sb.setStdAddress(rs.getString(5));
+	sb = new StudentBean();
+	sb.setStdNo(rs.getInt(1));
+	sb.setStdName(rs.getString(2));
+	sb.setStdHp(rs.getString(3));
+	sb.setStdYear(rs.getInt(4));
+	sb.setStdAddress(rs.getString(5));
 		}
 		//6단계
 		rs.close();
@@ -33,7 +35,6 @@
 	}catch(Exception e){
 		e.printStackTrace();
 	}
-
 %>
 
 <!DOCTYPE html>

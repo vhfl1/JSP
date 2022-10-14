@@ -30,4 +30,5 @@ public class UserBean {
 	public void setAge(int age) {
 		this.age = age;
 	}
+	
 }

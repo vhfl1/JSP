@@ -4,15 +4,21 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DB {
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+import javax.xml.crypto.Data;
 
-	private static DB instance = new DB();
+public class JDBC {
+
+	private static JDBC instance = new JDBC();
 	
-	public static DB getInstance() {
+	public static JDBC getInstance() {
 		return instance;
 	}
 	
-	private DB() {}
+	private JDBC() {}
 	
 	private final String host = "jdbc:mysql://127.0.0.1:3306/java1_college";
 	private final String user = "root";

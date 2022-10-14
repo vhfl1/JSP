@@ -4,26 +4,28 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
-<%@page import="config.DB"%>
+<%@page import="config.JDBC"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
+
+
 	List<StudentBean> students = new ArrayList<>();	
 
 	try{
-		Connection conn = DB.getInstance().getConnection();
+		Connection conn = JDBC.getInstance().getConnection();
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery("SELECT * FROM `student`");
 		
 		while(rs.next()){
 
-			StudentBean sb = new StudentBean();
-			
-			sb.setStdNo(rs.getInt(1));
-			sb.setStdName(rs.getString(2));
-			sb.setStdHp(rs.getString(3));
-			sb.setStdYear(rs.getInt(4));
-			sb.setStdAddress(rs.getString(5));
-			students.add(sb);
+	StudentBean sb = new StudentBean();
+	
+	sb.setStdNo(rs.getInt(1));
+	sb.setStdName(rs.getString(2));
+	sb.setStdHp(rs.getString(3));
+	sb.setStdYear(rs.getInt(4));
+	sb.setStdAddress(rs.getString(5));
+	students.add(sb);
 		}
 		//6단계
 		rs.close();

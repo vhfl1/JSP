@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-<% include file="./_header.jsp" %>
+<%@ include file="./_header.jsp" %>
 <main id="user" class="login">
     <form action="/jBoard1/list.jsp">
         <table border="0">
@@ -23,4 +23,4 @@
         <a href="/jBoard1/user/terms.jsp">회원가입</a>
     </div>
 </main>
-<% include file="./_footer.jsp" %>
+<%@ include file="./_footer.jsp" %>

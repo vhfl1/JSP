@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-<% include file="./_header.jsp" %>
+<%@ include file="./_header.jsp" %>
 <main id="user" class="terms">
     <table border="0">
         <caption>사이트 이용약관</caption>
@@ -26,4 +26,4 @@
         <a href="/jBoard1/user/register.jsp" class="next">다음</a>
     </p>
 </main>
-<% include file="./_footer.jsp" %>
+<%@ include file="./_footer.jsp" %>

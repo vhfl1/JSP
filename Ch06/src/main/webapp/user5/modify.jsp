@@ -8,10 +8,10 @@
   	request.setCharacterEncoding("UTF-8");
  	String uid = request.getParameter("uid");
 
- 	User5Bean user5 = null;
+ 	User5Bean ub = null;
 	
  	try{
- 		Connection conn = DBCP.getConnection("dbcp_java1db");
+ 		Connection conn = DBCP.getConnection();
  		String sql = "SELECT * FROM `user5` WHERE `uid`=?";
  		PreparedStatement psmt = conn.prepareStatement(sql);
  		psmt.setString(1, uid);
@@ -19,12 +19,13 @@
  		ResultSet rs = psmt.executeQuery();
 		
  		if(rs.next()){
- 			user5 = new User5Bean();
- 			user5.setName(rs.getString(2));
- 			user5.setBirth(rs.getString(3));
- 			user5.setAge(rs.getString(4));
- 			user5.setAddr(rs.getString(5));
- 			user5.setHp(rs.getString(6));
+ 			ub = new User5Bean();
+ 			ub.setUid(rs.getString(1));
+ 			ub.setName(rs.getString(2));
+ 			ub.setBirth(rs.getString(3));
+ 			ub.setAge(rs.getString(4));
+ 			ub.setAddr(rs.getString(5));
+ 			ub.setHp(rs.getString(6));
  		}
 		
  		rs.close();
@@ -52,27 +53,27 @@
 			<table border="1">
 				<tr>
 					<td>아이디</td>
-					<td><input type="text" name="uid" value="<%= uid %>" readonly /></td>
+					<td><input type="text" name="uid" value="<%= ub.getUid() %>" readonly /></td>
 				</tr>
 				<tr>
 					<td>이름</td>
-					<td><input type="text" name="name" value=""/></td>
+					<td><input type="text" name="name" value="<%= ub.getName() %>"/></td>
 				</tr>
 				<tr>
 					<td>생년월일</td>
-					<td><input type="date" name="birth" value=""/></td>
+					<td><input type="date" name="birth" value="<%= ub.getBirth() %>"/></td>
 				</tr>
 				<tr>
 					<td>나이</td>
-					<td><input type="number" name="age" value=""/></td>
+					<td><input type="number" name="age" value="<%= ub.getAge() %>"/></td>
 				</tr>
 				<tr>
 					<td>주소</td>
-					<td><input type="text" name="addr" value=""/></td>
+					<td><input type="text" name="addr" value="<%= ub.getAddr() %>"/></td>
 				</tr>
 				<tr>
 					<td>휴대폰</td>
-					<td><input type="text" name="hp" value=""/></td>
+					<td><input type="text" name="hp" value="<%= ub.getHp() %>"/></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="right"><input type="submit" value="수정"/></td>

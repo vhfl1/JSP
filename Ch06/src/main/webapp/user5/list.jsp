@@ -7,7 +7,7 @@
 <%@page import="java.sql.Connection"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-List<User5Bean> users = null;
+	List<User5Bean> users = null;
 
 	try{
 		Connection conn = DBCP.getConnection("dbcp_java1db");

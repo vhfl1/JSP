@@ -8,7 +8,7 @@
             <th>아이디</th>
             <td>
                 <input type="text" name="uid" placeholder="아이디 입력"/>
-                <button type="button"><img src="/jBoard1/img/게시판 이미지/chk_id.gif" alt="중복확인"/></button>
+                <button type="button"><img src="/jBoard1/img/chk_id.gif" alt="중복확인"/></button>
                 <span class="uidResult"></span>
             </td>
         </tr>    
@@ -41,7 +41,7 @@
             <td>
                 <p>공백없이 한글, 영문, 숫자 입력</p>
                 <input type="text" name="nick" placeholder="별명 입력"/>
-                <button type="button"><img src="/jBoard1/img/게시판 이미지/chk_id.gif" alt="중복확인"/></button>
+                <button type="button"><img src="/jBoard1/img/chk_id.gif" alt="중복확인"/></button>
                 <span class="resultNick"></span>
             </td>
         </tr>    
@@ -61,14 +61,14 @@
             <th>주소</th>
             <td>
                 <input type="text" name="zip" placeholder="우편번호 검색"readonly/>
-                <button type="button"><img src="/jBoard1/img/게시판 이미지/chk_post.gif" alt="우편번호 찾기"/></button>
+                <button type="button"><img src="/jBoard1/img/chk_post.gif" alt="우편번호 찾기"/></button>
                 <input type="text" name="addr1" placeholder="기본주소 검색" readonly/>
                 <input type="text" name="addr2" placeholder="상세주소 입력"/>
             </td>
         </tr>     
     </table>
     <div>
-        <a href="/jBoard1/user/login.html" class="btnCancel">취소</a>
+        <a href="/jBoard1/user/login.jsp" class="btnCancel">취소</a>
         <input type="submit" class="btnRegister" value="회원가입"/>
     </div>
 </form>

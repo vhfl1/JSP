@@ -3,10 +3,10 @@
 	//로그인 여부에 따라 페이지 분기
 	if(true){
 		
-		pageContext.forward("/jBoard1/user/login.jsp");
+		pageContext.forward("./user/login.jsp");
 		
 	}else{
-		pageContext.forward("/jBoard1/list.jsp");
+		pageContext.forward("./list.jsp");
 	}
 
 %>

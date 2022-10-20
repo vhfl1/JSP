@@ -20,7 +20,7 @@ public class JDBC {
 	
 	private JDBC() {}
 	
-	private final String host = "jdbc:mysql://127.0.0.1:3306/java1_college";
+	private final String host = "jdbc:mysql://127.0.0.1:3306/java1db";
 	private final String user = "root";
 	private final String pass = "1234";
 	

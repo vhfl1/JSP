@@ -1,4 +1,4 @@
-<%@page import="config.DBCP"%>
+<%@page import="kr.co.jBoard1.db.DBCP"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="bean.User5Bean"%>
 <%@page import="java.util.List"%>
@@ -10,7 +10,7 @@
 	List<User5Bean> users = null;
 
 	try{
-		Connection conn = DBCP.getConnection("dbcp_java1db");
+		Connection conn = DBCP.getConnection();
 		
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery("SELECT * FROM `user5`");

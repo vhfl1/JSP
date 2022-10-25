@@ -5,7 +5,7 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
-<%@page import="config.JDBC"%>
+<%@page import="kr.co.jBoard1.db.JDBC"%>
 <%@ page contentType="application/json;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	List<UserBean> users = new ArrayList<>();

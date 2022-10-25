@@ -1,5 +1,5 @@
 <%@page import="java.sql.PreparedStatement"%>
-<%@page import="config.JDBC"%>
+<%@page import="kr.co.jBoard1.db.JDBC"%>
 <%@page import="java.sql.Connection"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%

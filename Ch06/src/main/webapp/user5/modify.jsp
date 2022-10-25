@@ -1,4 +1,4 @@
-<%@page import="config.DBCP"%>
+<%@page import="kr.co.jBoard1.db.DBCP"%>
 <%@page import="bean.User5Bean"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -11,7 +11,7 @@
  	User5Bean ub = null;
 	
  	try{
- 		Connection conn = DBCP.getConnection("dbcp_java1db");
+ 		Connection conn = DBCP.getConnection();
  		String sql = "SELECT * FROM `user5` WHERE `uid`=?";
  		PreparedStatement psmt = conn.prepareStatement(sql);
  		psmt.setString(1, uid);

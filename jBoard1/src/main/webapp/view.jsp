@@ -1,4 +1,26 @@
+<%@page import="kr.co.jBoard1.dao.ArticleDAO"%>
+<%@page import="kr.co.jBoard1.bean.ArticleBean"%>
+<%@page import="kr.co.jBoard1.db.Sql"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="kr.co.jBoard1.db.DBCP"%>
+<%@page import="java.sql.Connection"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+	request.setCharacterEncoding("UTF-8");
+	String no = request.getParameter("no");
+	
+	//DAO 객체 가져오기
+	ArticleDAO dao = ArticleDAO.getInstance();
+	
+	//글 조회수 카운트 +1
+	dao.updateArticleHit(no);
+	
+	//글 가져오기
+	ArticleBean article = dao.selectArticle(no);
+	
+	
+%>
 <%@ include file="./_header.jsp" %>
 <main id="board" class="view">
     <table>
@@ -6,20 +28,22 @@
         <tr>
             <th>제목</th>
             <td>
-                <input type="text" name="title" value="제목입니다." readonly/>
+                <input type="text" name="title" value="<%= article.getTitle()%>" readonly/>
             </td>
         </tr>
+        <%if(article.getFile() > 0){ %>
         <tr>
             <th>파일</th>
             <td>
-                <a href="#">2020년 상반기 매출자료.xls</a>
-                <span>7</span>회 다운로드
+                <a href="/jBoard1/proc/download.jsp?fno=<%= article.getFno() %>"><%= article.getOriName() %></a>
+                <span><%= article.getDownload() %></span>회 다운로드
             </td>
         </tr>
+        <%} %>
         <tr>
             <th>내용</th>
             <td>
-                <textarea name="content" readonly>내용샘플입니다.</textarea>
+                <textarea name="content" readonly><%= article.getContent() %></textarea>
             </td>
         </tr>
     </table>

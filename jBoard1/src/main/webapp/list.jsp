@@ -32,7 +32,7 @@
 	
 	ArticleDAO dao = ArticleDAO.getInstance();
 	
-	//전체 개시물 갯수
+	//전체 게시물 갯수
 	total = dao.selectCountTotal();
 	
 	//마지막 페이지 번호
@@ -64,7 +64,7 @@
         <%for(ArticleBean article : articles){ %>
         <tr>
             <td><%=pageStartNum--  %></td>
-            <td><a href="/jBoard1/view.jsp"><%=article.getTitle() %>[<%=article.getComment() %>]</a>
+            <td><a href="/jBoard1/view.jsp?no=<%= article.getNo()%>"><%=article.getTitle() %>[<%=article.getComment() %>]</a>
             </td>
             <td><%=article.getNick() %></td>
             <td><%=article.getRdate().substring(2, 10) %></td>

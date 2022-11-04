@@ -9,6 +9,7 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 	String no = request.getParameter("no");
+	String pg = request.getParameter("pg");
 	
 	//DAO 객체 가져오기
 	ArticleDAO dao = ArticleDAO.getInstance();
@@ -48,9 +49,11 @@
         </tr>
     </table>
     <div>
-        <a href="#" class="btn btnRemove">삭제</a>
-        <a href="/jBoard1/modify.jsp" class="btn btnModify">수정</a>
-        <a href="/jBoard1/list.jsp" class="btn btnList">목록</a>
+    <%if(sessUser.getUid().equals(article.getUid())){ %>
+        <a href="/jBoard1/proc/deleteProc.jsp?no=<%= article.getNo() %>&pg=<%= pg %>" class="btn btnRemove">삭제</a>
+        <a href="/jBoard1/modify.jsp?no=<%= article.getNo() %>&pg=<%= pg %>" class="btn btnModify">수정</a>
+        <%} %>
+        <a href="/jBoard1/list.jsp?pg=<%= pg %>" class="btn btnList">목록</a>
     </div>
     <!--댓글 목록-->
     <section class="commentList">
@@ -59,10 +62,12 @@
             <span class="nick">길동이</span>
             <span class="date">20-05-13</span>
             <p class="content">댓글 샘플입니다.</p>
+            <%if(sessUser.getUid().equals(anObject)){ %>
             <div>
                 <a href="#" class="Remove">삭제</a>
                 <a href="#" class="Modify">수정</a>
             </div>
+            <%} %>
         </article>
         <p class="empty">등록된 댓글이 없습니다.</p>
     </section>

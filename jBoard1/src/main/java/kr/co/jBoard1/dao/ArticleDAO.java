@@ -7,12 +7,17 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.LoggerFactory;
+
+import ch.qos.logback.classic.Logger;
 import kr.co.jBoard1.bean.ArticleBean;
 import kr.co.jBoard1.bean.FileBean;
 import kr.co.jBoard1.db.DBCP;
 import kr.co.jBoard1.db.Sql;
 
 public class ArticleDAO {
+	
+	Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	private static ArticleDAO instance = new ArticleDAO();
 	public static ArticleDAO getInstance() {
@@ -127,8 +132,73 @@ public class ArticleDAO {
 		return fb;
 	}
 	
-	public void updateArticle() {}
-	public void deleteArticle() {}
+	public void updateArticle(String no, String title, String content) {
+		
+		try{
+			Connection conn = DBCP.getConnection();
+			PreparedStatement psmt = conn.prepareStatement(Sql.UPDATE_ARTICLE);
+			
+			psmt.setString(1, title);
+			psmt.setString(2, content);
+			psmt.setString(3, no);
+			
+			psmt.executeUpdate();
+			psmt.close();
+			conn.close();
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	public void deleteArticle(String no) {
+		
+		try{
+			Connection conn = DBCP.getConnection();
+			PreparedStatement psmt = conn.prepareStatement(Sql.DELETE_ARTICLE);
+			
+			psmt.setString(1, no);
+			psmt.setString(2, no);
+			
+			psmt.executeUpdate();
+			psmt.close();
+			conn.close();
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	public String deleteFile(String parent) {
+		
+		String newName = null;
+		
+		try{
+			Connection conn = DBCP.getConnection();
+			
+			conn.setAutoCommit(false);
+			
+			PreparedStatement psmt1 = conn.prepareStatement(Sql.SELECT_FILE_WITH_PARENT);
+			PreparedStatement psmt2 = conn.prepareStatement(Sql.DELETE_FILE);
+			psmt1.setString(1, parent);
+			psmt2.setString(1, parent);
+			
+			ResultSet rs = psmt1.executeQuery();
+			psmt2.executeUpdate();
+			
+			conn.commit();
+			
+			if(rs.next()) {
+				newName = rs.getString(3);
+			}
+			
+			psmt1.close();
+			psmt2.close();
+			conn.close();
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return newName;
+	}
 	
 	//전체 게시물 카운트
 	public int selectCountTotal() {

@@ -1,8 +1,37 @@
+<%@page import="kr.co.farmstory1.dao.ArticleDAO"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../_header.jsp" %>
 <%
+	request.setCharacterEncoding("UTF-8");
 	String group = request.getParameter("group");
 	String cate = request.getParameter("cate");
+	String pg = request.getParameter("pg");
+	
+	int start = 0;
+	int total = 0;
+	int lastPageNum = 0;
+	int currentPage =1;
+	int currentPageGroup = 1;
+	int pageGroupStart = 0;
+	int pageGroupEnd = 0;
+	int pageStartNum = 0;
+	
+	if(pg != null){
+		currentPage = Integer.parseInt(pg);
+	}
+	
+	start = (currentPage -1) * 10;
+	currentPageGroup = (int)Math.ceil(currentPage / 10.0);
+	pageGroupStart = (currentPageGroup - 1) * 10 + 1;
+	pageGroupEnd = currentPageGroup * 10;
+	
+	ArticleDAO dao = ArticleDAO.getInstance();
+	
+	//전체 게시물 개수
+	total = dao.selectCountTotal(cate);
+	
+	//마지막 페이지 번호
+	
 
 	pageContext.include("./_"+group+".jsp");
  %>

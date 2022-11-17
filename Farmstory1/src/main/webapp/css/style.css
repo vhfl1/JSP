@@ -18,6 +18,12 @@ p{
     box-sizing: border-box;
 }
 
+.loading{
+	display: block;
+	width: 60px;
+	margin: 20px auto;
+}
+
 /* 헤더 */
 header{
     position: relative;

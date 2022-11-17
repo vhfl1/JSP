@@ -1,4 +1,9 @@
+<%@page import="kr.co.farmstory1.dao.UserDAO"%>
+<%@page import="kr.co.farmstory1.bean.TermsBean"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+	TermsBean tb = UserDAO.getInstance().selectTerms();
+%>
 <%@ include file="../_header.jsp" %>
 <main id="user" class="terms">
     <table border="0">

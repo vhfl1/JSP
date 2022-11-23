@@ -31,12 +31,10 @@ public class UserDAO extends DBHelper{
 			psmt.setString(4, vo.getNick());
 			psmt.setString(5, vo.getEmail());
 			psmt.setString(6, vo.getHp());
-			psmt.setInt(7, vo.getGrade());
-			psmt.setString(8, vo.getZip());
-			psmt.setString(9, vo.getAddr1());
-			psmt.setString(10, vo.getAddr2());
-			psmt.setString(11, vo.getRegip());
-			psmt.setString(12, vo.getRdate());
+			psmt.setString(7, vo.getZip());
+			psmt.setString(8, vo.getAddr1());
+			psmt.setString(9, vo.getAddr2());
+			psmt.setString(10, vo.getRegip());
 			psmt.executeUpdate();
 			
 			close();
@@ -127,6 +125,7 @@ public class UserDAO extends DBHelper{
 	}
 	
 	public UserVO selectUser(String uid, String pass) {
+		
 		UserVO vo = null;
 		
 		try {
@@ -162,7 +161,86 @@ public class UserDAO extends DBHelper{
 		logger.debug("vo : "+ vo);
 		return vo;
 	}
+	
+	
 	public void selectUsers() {}
+	
+	public UserVO selectUserForFindId(String name, String email) {
+		
+		UserVO vo = null;
+		
+		try {
+			logger.info("selectUserForFindId");
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_USER_FOR_FIND_ID);
+			psmt.setString(1, name);
+			psmt.setString(2, email);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				vo = new UserVO();
+				vo.setName(rs.getString(1));
+				vo.setUid(rs.getString(2));
+				vo.setEmail(rs.getString(3));
+				vo.setRdate(rs.getString(4));
+			}
+			close();
+			
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+		
+		logger.debug("vo : "+vo);
+		return vo;
+	}
+	
+	public int selectUserForFindPw(String uid, String email) {
+		
+		int result = 0;
+		
+		try {
+			logger.info("selectUserForFindId");
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_USER_FOR_FIND_PW);
+			psmt.setString(1, uid);
+			psmt.setString(2, email);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+			close();
+			
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+		
+		return result;
+	}
+	
 	public void updateUser() {}
+	
+	public int updateUserPassword(String uid, String pass) {
+		
+		int result = 0;
+		
+		try {
+			logger.info("updateUserPassword...");
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.UPDATE_USER_PASSWORD);
+			psmt.setString(1, pass);
+			psmt.setString(2, uid);
+			result = psmt.executeUpdate();
+			
+			close();
+			
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+		return result;
+	}
 	public void deleteUser() {}
 }

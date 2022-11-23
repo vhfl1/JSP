@@ -1,3 +1,4 @@
+<%@page import="config.JDBC"%>
 <%@page import="com.google.gson.Gson"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
@@ -5,7 +6,6 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
-<%@page import="kr.co.jBoard1.db.JDBC"%>
 <%@ page contentType="application/json;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	List<UserBean> users = new ArrayList<>();

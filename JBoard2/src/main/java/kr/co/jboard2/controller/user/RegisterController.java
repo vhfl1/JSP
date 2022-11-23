@@ -55,7 +55,7 @@ public class RegisterController extends HttpServlet{
 		vo.setZip(zip);
 		vo.setAddr1(addr1);
 		vo.setAddr2(addr2);
-		vo.setRegip(zip);
+		vo.setRegip(regip);
 		
 		//데이터베이스 처리
 		UserDAO.getInstance().insertUser(vo);

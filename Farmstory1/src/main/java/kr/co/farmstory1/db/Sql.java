@@ -13,6 +13,16 @@ public class Sql {
 	
 	public static final String SELECT_FILE_WITH_PARENT = "select * from `board_file` where `parent`=?";
 	
+	public static final String SELECT_LATESTS = "(SELECT `no`, `title`, `rdate` FROM `board_article` WHERE `cate`='grow' ORDER BY `no` DESC LIMIT 5) "
+												+ "UNION "
+												+ "(SELECT `no`, `title`, `rdate` FROM `board_article` WHERE `cate`='school' ORDER BY `no` DESC LIMIT 5) "
+												+ "UNION "
+												+ "(SELECT `no`, `title`, `rdate` FROM `board_article` WHERE `cate`='story' ORDER BY `no` DESC LIMIT 5)";
+	
+	public static final String UPDATE_ARTICLE = "update `board_article` set "
+												+ "`title`=?, `content`=?, `rdate`=NOW() "
+												+ "where `no`=?";
+	
 	public static final String DELETE_ARTICLE = "delete * from `board_article` where `no`=? or `parent`=?";
 	public static final String DELETE_COMMENT = "delete from `board_article` where `no`=?";
 	public static final String DELETE_FILE = "SELECT_FILE_WITH_PARENT";

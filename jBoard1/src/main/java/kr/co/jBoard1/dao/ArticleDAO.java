@@ -7,9 +7,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ch.qos.logback.classic.Logger;
+
 import kr.co.jBoard1.bean.ArticleBean;
 import kr.co.jBoard1.bean.FileBean;
 import kr.co.jBoard1.db.DBCP;

@@ -1,19 +1,20 @@
 package kr.co.jboard2.controller.user;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import com.google.gson.JsonObject;
 
 import kr.co.jboard2.dao.UserDAO;
 
-@WebServlet("/user/logout.do")
-public class LogoutController extends HttpServlet{
+@WebServlet("/user/checkNick.do")
+public class CheckNickController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 
@@ -24,23 +25,16 @@ public class LogoutController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String uid = req.getParameter("uid");
+		String nick = req.getParameter("nick");
 		
-		//세션 제거
-		HttpSession session = req.getSession();
-		session.removeAttribute("sessUser");
-		session.invalidate();
+		int result = UserDAO.getInstance().selectCountNick(nick);
 		
-		//쿠키 제거
-		Cookie cookie = new Cookie("SESSID", null);
-		cookie.setPath("/");
-		cookie.setMaxAge(0);
-		resp.addCookie(cookie);
+		JsonObject json = new JsonObject();
+		json.addProperty("result", result);
 		
-		//데이터베이스 세션 로그아웃
-		UserDAO.getInstance().updateUserForSessionOut(uid);
-		
-		resp.sendRedirect("/JBoard2/user/login.do?successs=201");
+		PrintWriter writer = resp.getWriter();
+		writer.print(json.toString());
+	
 	}
 	
 	@Override

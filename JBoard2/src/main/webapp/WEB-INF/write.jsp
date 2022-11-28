@@ -3,7 +3,7 @@
 <main id="board">
     <section class="write">
 
-        <form action="#">
+        <form action="/JBoard2/write.do" method="post" enctype="multipart/form-data">
             <table border="0">
                 <caption>글쓰기</caption>
                 <tr>
@@ -25,7 +25,7 @@
             </table>
             
             <div>
-                <a href="./list.do" class="btn btnCancel">취소</a>
+                <a href="/JBoard2/list.do" class="btn btnCancel">취소</a>
                 <input type="submit" value="작성완료" class="btn btnComplete"/>
             </div>
         </form>

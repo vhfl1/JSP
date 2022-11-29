@@ -26,11 +26,14 @@
             </table>
             
             <div>
-                <a href="./view.jsp" class="btn btnCancel">취소</a>
+                <a href="./view.do?group=${group}&cate=${cate}" class="btn btnCancel">취소</a>
                 <input type="submit" value="작성완료" class="btn btnComplete"/>
             </div>
         </form>
 
     </section>
 </main>
+</article>
+    </section>
+</div>
 <jsp:include page="/WEB-INF/_footer.jsp"/>

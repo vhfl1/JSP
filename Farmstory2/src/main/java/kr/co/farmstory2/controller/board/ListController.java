@@ -1,4 +1,4 @@
-package kr.co.farmstory2.controller;
+package kr.co.farmstory2.controller.board;
 
 import java.io.IOException;
 
@@ -9,23 +9,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/introduction/direction.do")
-public class DirectionController extends HttpServlet{
+@WebServlet("/board/list.do")
+public class ListController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-
+	
 	@Override
 	public void init() throws ServletException {
 	}
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/introduction/direction.jsp");
-		dispatcher.forward(req, resp);
+		
+		String group = req.getParameter("group");
+		String cate = req.getParameter("cate");
+		
+		req.setAttribute("group", group);
+		req.setAttribute("cate", cate);
+		
+		
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/board/list.jsp");
+		dispatcher.forward(req, resp);		
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	}
-	
 }

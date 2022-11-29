@@ -9,8 +9,8 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
-      <!-- 인코딩 필터 -->
+    
+    <!-- 인코딩 필터 -->
   <filter>
   	<filter-name>SetCharacterEncodingFilter</filter-name>
   	<filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>

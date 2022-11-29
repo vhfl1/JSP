@@ -7,7 +7,7 @@
 
             <ul class="lnb">
                 <li class="on"><a href="/Farmstory2/board/list.do">장보기</a></li>
-            </ul>s
+            </ul>
         </aside>
         <article>
             <nav>

@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <jsp:include page="../_header.jsp"/>
-<jsp:include page="./_${group}.jsp"/>        
-
+<jsp:include page="/board/_community.jsp"/>
             <!-- 내용 시작 -->
             <img src="/Farmstory2/img/board_list.png" alt="">
 
@@ -9,6 +8,5 @@
 
         </article>
     </section>
-
 </div>
 <jsp:include page="../_footer.jsp"/>

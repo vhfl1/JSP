@@ -162,8 +162,33 @@ public class UserDAO extends DBHelper{
 		return vo;
 	}
 	
-	
 	public void selectUsers() {}
+	
+	public int selectUserPassword(String uid, String pass) {
+		
+		int result = 0;
+		
+		try {
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_USER_PASSWORD);
+			psmt.setString(1, uid);
+			psmt.setString(2, pass);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+			
+			close();
+			
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+		
+		logger.error("result"+result);
+		return result;
+	}
 	
 	public UserVO selectUserForFindId(String name, String email) {
 		
@@ -257,7 +282,27 @@ public class UserDAO extends DBHelper{
 		return vo;
 	}
 	
-	public void updateUser() {}
+	public void updateUser(UserVO vo) {
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement("update `board_user` set `password`=?, `name`=?, `nick`=?, `email`=?, `hp`=?, `zip`=?, `addr1`=?, `addr2`=? where `uid`=?");
+			psmt.setString(1, vo.getPass());
+			psmt.setString(2, vo.getName());
+			psmt.setString(3, vo.getNick());
+			psmt.setString(4, vo.getEmail());
+			psmt.setString(5, vo.getHp());
+			psmt.setString(6, vo.getZip());
+			psmt.setString(7, vo.getAddr1());
+			psmt.setString(7, vo.getAddr2());
+			psmt.setString(8, vo.getUid());
+			psmt.executeUpdate();
+			close();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 	
 	public int updateUserPassword(String uid, String pass) {
 		

@@ -34,12 +34,9 @@ public class InfoController extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	
-		HttpSession sess = req.getSession();
-		sess.removeAttribute("sessUser");
-		
-		String pass = req.getParameter("pass");
+
 		String uid = req.getParameter("uid");
+		String pass = req.getParameter("pass");
 		
 		UserDAO dao = UserDAO.getInstance();
 		int result = dao.selectUserPassword(uid, pass);

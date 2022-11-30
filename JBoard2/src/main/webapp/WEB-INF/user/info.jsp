@@ -5,7 +5,7 @@
 		
 		$('btnNext').click(function(){
 		
-			let uid = ${sessUser.uid}
+			let uid = $('input[name=uid]').val();
 			let pass = $('input[name=pass]').val();
 			
 			let jsonData = {
@@ -20,7 +20,7 @@
 				dataType:'json',
 				success:function(data){
 					if(data.result == 1){
-						location.href="/user/myInfo.do?uid="+uid;
+						location.href="/JBoard2/user/myInfo.do?uid="+uid;
 					}else{
 						alert('비밀번호가 일치하지 않습니다.');
 					}

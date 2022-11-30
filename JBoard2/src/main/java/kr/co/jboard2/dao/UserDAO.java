@@ -164,32 +164,6 @@ public class UserDAO extends DBHelper{
 	
 	public void selectUsers() {}
 	
-	public int selectUserPassword(String uid, String pass) {
-		
-		int result = 0;
-		
-		try {
-			
-			conn = getConnection();
-			psmt = conn.prepareStatement(Sql.SELECT_USER_PASSWORD);
-			psmt.setString(1, uid);
-			psmt.setString(2, pass);
-			rs = psmt.executeQuery();
-			
-			if(rs.next()) {
-				result = rs.getInt(1);
-			}
-			
-			close();
-			
-		}catch(Exception e) {
-			logger.error(e.getMessage());
-		}
-		
-		logger.error("result"+result);
-		return result;
-	}
-	
 	public UserVO selectUserForFindId(String name, String email) {
 		
 		UserVO vo = null;

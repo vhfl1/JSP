@@ -77,7 +77,50 @@ public class ArticleDAO extends DBHelper{
 			logger.error(e.getMessage());
 		}
 	}
-	public void insertComment() {}
+	public ArticleVO insertComment(ArticleVO comment) {
+		
+		ArticleVO article = null;
+		
+		try{
+			conn = getConnection();
+			
+			// 트랜잭션 시작
+			conn.setAutoCommit(false);
+			
+			psmt = conn.prepareStatement(Sql.INSERT_COMMENT);
+			stmt = conn.createStatement();
+			
+			psmt.setInt(1, comment.getParent());
+			psmt.setString(2, comment.getContent());
+			psmt.setString(3, comment.getUid());
+			psmt.setString(4, comment.getRegip());
+			
+			psmt.executeUpdate();
+			rs = stmt.executeQuery(Sql.SELECT_COMMENT_LATEST);
+			
+			// 작업확정
+			conn.commit();
+			
+			if(rs.next()) {
+				article = new ArticleVO();
+				article.setNo(rs.getInt(1));
+				article.setParent(rs.getInt(2));
+				article.setContent(rs.getString(6));
+				article.setRdate(rs.getString(11).substring(2, 10));
+				article.setNick(rs.getString(12));
+			}
+			
+			rs.close();
+			stmt.close();			
+			psmt.close();
+			conn.close();
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return article;
+	}
 	
 	public ArticleVO selectArticle(String no) {
 		ArticleVO article = null;

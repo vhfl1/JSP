@@ -42,6 +42,14 @@ public class Sql {
 											+"`oriName`=?,"
 											+"`rdate`=NOW()";
 	
+	public static final String INSERT_COMMENT = "insert into `board_article` set "
+												+ "`parent`=?,"
+												+ "`content`=?,"
+												+ "`uid`=?,"
+												+ "`regip`=?,"
+												+ "`rdate`=NOW()";
+
+	
 	public static final String SELECT_MAX_NO = "select max(`no`) from `board_article`";
 	public static final String SELECT_COUNT_TOTAL = "select count(`no`) from `board_article` where `parent`=0";
 	public static final String SELECT_COUNT_TOTAL_FOR_SEARCH = "select count(`no`) from `board_article` as a "

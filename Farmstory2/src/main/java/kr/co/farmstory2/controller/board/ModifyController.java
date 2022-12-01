@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.co.farmstory2.dao.ArticleDAO;
+import kr.co.farmstory2.vo.ArticleVO;
+
 @WebServlet("/board/modify.do")
 public class ModifyController extends HttpServlet {
 
@@ -23,10 +26,9 @@ public class ModifyController extends HttpServlet {
 		
 		String group = req.getParameter("group");
 		String cate = req.getParameter("cate");
-		
+
 		req.setAttribute("group", group);
 		req.setAttribute("cate", cate);
-		
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/board/modify.jsp");
 		dispatcher.forward(req, resp);		
@@ -34,5 +36,14 @@ public class ModifyController extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		String pg = req.getParameter("pg");
+		String no = req.getParameter("no");
+		
+		ArticleVO article = ArticleDAO.getInstance().selectArticle(no);
+		
+		req.setAttribute("pg", pg);
+		req.setAttribute("no", no);
+		
 	}
 }

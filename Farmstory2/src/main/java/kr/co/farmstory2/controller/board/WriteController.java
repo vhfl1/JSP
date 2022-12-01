@@ -35,7 +35,7 @@ public class WriteController extends HttpServlet {
 		req.setAttribute("cate", cate);
 		
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/write/list.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/board/write.jsp");
 		dispatcher.forward(req, resp);		
 	}
 	
@@ -47,16 +47,20 @@ public class WriteController extends HttpServlet {
 		String path = ctx.getRealPath("/file");
 		
 		MultipartRequest mr = service.uploadFile(req, path);
+		
+		String group = mr.getParameter("group");
+		String cate = mr.getParameter("cate");
+		String uid = mr.getParameter("uid");
 		String title = mr.getParameter("title");
 		String cotent = mr.getParameter("cotent");
-		String uid = mr.getParameter("uid");
 		String fname = mr.getParameter("fname");
 		String regip = req.getRemoteAddr();
 		
 		ArticleVO article = new ArticleVO();
+		article.setCate(cate);
+		article.setUid(uid);
 		article.setTitle(title);
 		article.setContent(cotent);
-		article.setUid(uid);
 		article.setFname(fname);
 		article.setRegip(regip);
 		
@@ -71,7 +75,7 @@ public class WriteController extends HttpServlet {
 			service.insertFile(parent, newName, fname);
 		}
 		
-		resp.sendRedirect("/Farmstory2/list.do");
+		resp.sendRedirect("/Farmstory2/board/list.do?group="+group+"&cate="+cate);
 		
 	}
 }

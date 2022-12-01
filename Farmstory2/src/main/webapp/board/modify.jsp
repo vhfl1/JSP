@@ -4,17 +4,17 @@
 <main id="board">
     <section class="modify">
 
-        <form action="#">
+        <form action="/Farmstory2/board/modify.do">
             <table border="0">
                 <caption>글수정</caption>
                 <tr>
                     <th>제목</th>
-                    <td><input type="text" name="title" placeholder="제목을 입력하세요."/></td>
+                    <td><input type="text" name="title" placeholder="제목을 입력하세요." value="${article.title}"/></td>
                 </tr>
                 <tr>
                     <th>내용</th>
                     <td>
-                        <textarea name="content"></textarea>
+                        <textarea name="content" value="${article.cotent}"></textarea>
                     </td>
                 </tr>
                 <tr>

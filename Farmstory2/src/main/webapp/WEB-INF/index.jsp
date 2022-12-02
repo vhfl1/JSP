@@ -24,7 +24,7 @@
 
             <div class="latest">
                 <div>
-                    <a href="#"><img src="/Farmstory2/img/main_latest1_tit.png" alt="텃밭 가꾸기"/></a>
+                    <a href="/Farmstory2/board/list.do?group=croptalk&cate=grow"><img src="/Farmstory2/img/main_latest1_tit.png" alt="텃밭 가꾸기"/></a>
                     <img src="/Farmstory2/img/main_latest1_img.jpg" alt="이미지"/>
                     <table border="0">
                         <tr>
@@ -32,30 +32,11 @@
                             <td><a href="#">토마토! 건강하게 길러서 안심하고 먹자</a></td>
                             <td>20-12-22</td>
                         </tr>
-                        <tr>
-                            <td>></td>
-                            <td><a href="#">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                            <td>20-12-22</td>
-                        </tr>
-                        <tr>
-                            <td>></td>
-                            <td><a href="#">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                            <td>20-12-22</td>
-                        </tr>
-                        <tr>
-                            <td>></td>
-                            <td><a href="#">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                            <td>20-12-22</td>
-                        </tr>
-                        <tr>
-                            <td>></td>
-                            <td><a href="#">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                            <td>20-12-22</td>
-                        </tr>
+                        
                     </table>
                 </div>
                 <div>
-                    <a href="#"><img src="/Farmstory2/img/main_latest2_tit.png" alt="귀농학교"/></a>
+                    <a href="/Farmstory2/board/list.do?group=croptalk&cate=school"><img src="/Farmstory2/img/main_latest2_tit.png" alt="귀농학교"/></a>
                     <img src="/Farmstory2/img/main_latest2_img.jpg" alt="이미지"/>
                     <table border="0">
                         <tr>
@@ -63,30 +44,11 @@
                             <td><a href="#">토마토! 건강하게 길러서 안심하고 먹자</a></td>
                             <td>20-12-22</td>
                         </tr>
-                        <tr>
-                            <td>></td>
-                            <td><a href="#">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                            <td>20-12-22</td>
-                        </tr>
-                        <tr>
-                            <td>></td>
-                            <td><a href="#">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                            <td>20-12-22</td>
-                        </tr>
-                        <tr>
-                            <td>></td>
-                            <td><a href="#">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                            <td>20-12-22</td>
-                        </tr>
-                        <tr>
-                            <td>></td>
-                            <td><a href="#">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                            <td>20-12-22</td>
-                        </tr>
+                        
                     </table>
                 </div>
                 <div>
-                    <a href="#"><img src="/Farmstory2/img/main_latest3_tit.png" alt="농작물 이야기"/></a>
+                    <a href="/Farmstory2/board/list.do?group=croptalk&cate=story"><img src="/Farmstory2/img/main_latest3_tit.png" alt="농작물 이야기"/></a>
                     <img src="/Farmstory2/img/main_latest3_img.jpg" alt="이미지"/>
                     <table border="0">
                         <tr>
@@ -94,26 +56,7 @@
                             <td><a href="#">토마토! 건강하게 길러서 안심하고 먹자</a></td>
                             <td>20-12-22</td>
                         </tr>
-                        <tr>
-                            <td>></td>
-                            <td><a href="#">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                            <td>20-12-22</td>
-                        </tr>
-                        <tr>
-                            <td>></td>
-                            <td><a href="#">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                            <td>20-12-22</td>
-                        </tr>
-                        <tr>
-                            <td>></td>
-                            <td><a href="#">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                            <td>20-12-22</td>
-                        </tr>
-                        <tr>
-                            <td>></td>
-                            <td><a href="#">토마토! 건강하게 길러서 안심하고 먹자</a></td>
-                            <td>20-12-22</td>
-                        </tr>
+                        
                     </table>
                 </div>
                 

@@ -41,7 +41,7 @@ public class WriteController extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	
+		
 		//multipart 전송 데이터 수신
 		ServletContext ctx = req.getServletContext();
 		String path = ctx.getRealPath("/file");
@@ -52,15 +52,14 @@ public class WriteController extends HttpServlet {
 		String cate = mr.getParameter("cate");
 		String uid = mr.getParameter("uid");
 		String title = mr.getParameter("title");
-		String cotent = mr.getParameter("cotent");
+		String content = mr.getParameter("content");
 		String fname = mr.getParameter("fname");
 		String regip = req.getRemoteAddr();
 		
 		ArticleVO article = new ArticleVO();
-		article.setCate(cate);
 		article.setUid(uid);
 		article.setTitle(title);
-		article.setContent(cotent);
+		article.setContent(content);
 		article.setFname(fname);
 		article.setRegip(regip);
 		

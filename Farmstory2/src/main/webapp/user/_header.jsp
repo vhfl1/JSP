@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>게시판</title>
-    <link rel="stylesheet" href="/JBoard2/css/style.css"/>
+    <link rel="stylesheet" href="/Farmstory2/css/style.css"/>
+    <link rel="stylesheet" href="/Farmstory2/css/user.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <body>

@@ -35,7 +35,7 @@ let regPass  = /^.*(?=^.{5,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
 			console.log('here4');
 			
 			$.ajax({
-				url:'/JBoard2/user/findPwChange.do',
+				url:'/Farmstory2/user/findPwChange.do',
 				method:'post',
 				data:jsonData,
 				dataType:'json',
@@ -44,7 +44,7 @@ let regPass  = /^.*(?=^.{5,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
 					
 					if(data.result > 0){
 						alert('새로운 비밀번호로 변경했습니다.\n다시 로그인하십시오.');
-						location.href = "/JBoard2/user/login.do";
+						location.href = "/Farmstory2/user/login.do";
 					}
 					
 				}
@@ -83,8 +83,8 @@ let regPass  = /^.*(?=^.{5,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
         </p>
 
         <div>
-            <a href="/JBoard2/user/login.do" class="btn btnCancel">취소</a>
-            <a href="/JBoard2/user/login.do" class="btn btnNext">다음</a>
+            <a href="/Farmstory2/user/login.do" class="btn btnCancel">취소</a>
+            <a href="/Farmstory2/user/login.do" class="btn btnNext">다음</a>
         </div>
     </section>
 </main>

@@ -41,8 +41,9 @@
             </c:if>
         </div>
 
+		<c:if test="${sessUser.uid != null}">
         <a href="./write.do?group=${group}&cate=${cate}" class="btn btnWrite">글쓰기</a>
-        
+        </c:if>
     </section>
 </main>
 </article>

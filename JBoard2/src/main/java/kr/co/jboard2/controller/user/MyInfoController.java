@@ -42,16 +42,6 @@ public class MyInfoController extends HttpServlet{
 		String addr2 = req.getParameter("addr2");
 		
 		UserVO vo = new UserVO();
-		vo.setUid(uid);
-		vo.setPass(pass);
-		vo.setName(name);
-		vo.setNick(nick);
-		vo.setEmail(email);
-		vo.setHp(hp);
-		vo.setZip(zip);
-		vo.setAddr1(addr1);
-		vo.setAddr2(addr2);
-	
 		UserDAO.getInstance().updateUser(vo);
 		
 		resp.sendRedirect("/user/list.do");

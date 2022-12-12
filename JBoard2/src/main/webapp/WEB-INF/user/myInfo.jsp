@@ -29,7 +29,7 @@
                 <tr>
                     <td>회원가입일</td>
                     <td>
-                    2022-02-22 00:00:00 
+                    ${sessUser.rdate}
                     </td>
                 </tr>
             </table>

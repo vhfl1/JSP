@@ -20,7 +20,7 @@
 				dataType:'json',
 				success:function(data){
 					if(data.result == 1){
-						location.href="/JBoard2/user/myInfo.do?uid="+uid;
+						location.href="/JBoard2/user/myInfo.do";
 					}else{
 						alert('비밀번호가 일치하지 않습니다.');
 					}

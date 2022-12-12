@@ -209,10 +209,10 @@ public class ArticleDAO {
 		
 		try {
 			Connection conn = DBCP.getConnection();
-			PreparedStatement psmt = PreparedStatement = conn.prepareStatement(Sql.DELETE_COMMENT);
+			PreparedStatement psmt = conn.prepareStatement(Sql.DELETE_COMMENT);
 			psmt.setString(1, no);
 			
-			result = psmt.excuteUpdate();
+			result = psmt.executeUpdate();
 			psmt.close();
 			conn.close();
 		}catch(Exception e) {

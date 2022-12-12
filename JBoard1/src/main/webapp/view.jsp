@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="kr.co.jBoard1.dao.ArticleDAO"%>
 <%@page import="kr.co.jBoard1.bean.ArticleBean"%>
 <%@page import="kr.co.jBoard1.db.Sql"%>
@@ -20,6 +21,8 @@
 	//글 가져오기
 	ArticleBean article = dao.selectArticle(no);
 	
+	//댓글 가져오기
+	List<ArticleBean> comments = dao.selectComments(no);
 	
 %>
 <%@ include file="./_header.jsp" %>
@@ -58,23 +61,32 @@
     <!--댓글 목록-->
     <section class="commentList">
         <h3>댓글목록</h3>
+        
+        <% for(ArticleBean comment : comments){ %>
         <article>
-            <span class="nick">길동이</span>
-            <span class="date">20-05-13</span>
-            <p class="content">댓글 샘플입니다.</p>
-            <%if(sessUser.getUid().equals(anObject)){ %>
+            <span class="nick"><%= comment.getNick() %></span>
+            <span class="date"><%= comment.getRdate() %></span>
+            <p class="content"><%= comment.getContent() %></p>
+            <%if(sessUser.getUid().equals(comment.getUid())){ %>
             <div>
-                <a href="#" class="Remove">삭제</a>
-                <a href="#" class="Modify">수정</a>
+                <a href="#" class="Remove" data-no="<%= comment.getNo() %>">삭제</a>
+                <a href="#" class="Modify" data-no="<%= comment.getNo() %>">수정</a>
             </div>
             <%} %>
         </article>
+        <%} %>
+        
+        <%if(comments.size() == 0){ %>
         <p class="empty">등록된 댓글이 없습니다.</p>
+        <%} %>
     </section>
     <!--댓글 쓰기-->
     <section class="commentForm">
         <h3>댓글쓰기</h3>
-        <form action="#">
+        <form action="#" method="post">
+        	<input type="hidden" name="pg" value="<%= pg %>">
+        	<input type="hidden" name="parent" value="<%= no %>">
+        	<input type="hidden" name="uid" value="<%= sessUser.getUid() %>">
             <textarea name="content" placeholder="댓글내용 입력"></textarea>
             <div>
                 <a href="#" class="btn btnCancel">취소</a>

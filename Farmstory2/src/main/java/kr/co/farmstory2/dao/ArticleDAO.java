@@ -119,6 +119,7 @@ public class ArticleDAO extends DBHelper{
 			conn = getConnection();
 			psmt = conn.prepareStatement(Sql.SELECT_ARTICLE);
 			psmt.setString(1, no);
+			rs = psmt.executeQuery();
 			
 			while(rs.next()) {
 				article = new ArticleVO();

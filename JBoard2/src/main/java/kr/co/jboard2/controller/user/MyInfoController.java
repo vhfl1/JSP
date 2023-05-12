@@ -44,6 +44,6 @@ public class MyInfoController extends HttpServlet{
 		UserVO vo = new UserVO();
 		UserDAO.getInstance().updateUser(vo);
 		
-		resp.sendRedirect("/user/list.do");
+		resp.sendRedirect("/list.do");
 	}
 }

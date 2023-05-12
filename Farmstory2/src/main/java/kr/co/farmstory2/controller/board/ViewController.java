@@ -39,7 +39,7 @@ public class ViewController extends HttpServlet {
 		//댓글 가져오기
 		List<ArticleVO> comments = dao.selectComments(no);
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/board/view.do");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/board/view.jsp");
 		dispatcher.forward(req, resp);		
 	}
 	
